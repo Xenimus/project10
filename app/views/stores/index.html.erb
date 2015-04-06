@@ -19,13 +19,16 @@
         <td><%= store.quantity %></td>
         <td><%= store.date %></td>
         <td><%= link_to 'Show', store %></td>
+        <% if user_signed_in? %>
         <td><%= link_to 'Edit', edit_store_path(store) %></td>
         <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if user_signed_in? %>
 <%= link_to 'New Store', new_store_path %>
+<% end %>
